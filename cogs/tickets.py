@@ -41,12 +41,14 @@ class Tickets(commands.Cog):
         embed.add_field(name="User ID", value=str(ctx.author.id), inline=True)
         embed.set_footer(text=f"#{ctx.channel.name} • {ctx.guild.name}")
 
+        # Post to staff channel if set
         if staff_channel_id:
             staff_channel = ctx.guild.get_channel(staff_channel_id)
             if staff_channel:
                 ping = f"<@&{staff_role_id}>" if staff_role_id else ""
                 await staff_channel.send(content=ping, embed=embed)
 
+        # DM all online staff with the role
         if staff_role_id:
             staff_role = ctx.guild.get_role(staff_role_id)
             if staff_role:
