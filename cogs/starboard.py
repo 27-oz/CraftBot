@@ -3,7 +3,7 @@ from discord.ext import commands
 import json, os
 
 DATA_FILE = "data/starboard.json"
-STAR_THRESHOLD = 5
+STAR_THRESHOLD = 3
 STAR_EMOJI = "⭐"
 
 def load_data():
