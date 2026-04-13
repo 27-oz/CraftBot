@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: craftbot
+    env: python
+    buildCommand: apt-get install -y ffmpeg && pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: TWITCH_CLIENT_ID
+        sync: false
+      - key: TWITCH_CLIENT_SECRET
+        sync: false
+      - key: RSSHUB_URL
+        value: https://rsshub.app
